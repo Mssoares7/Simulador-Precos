@@ -15,15 +15,14 @@ def index():
     return render_template("index.html", result = result)
 
 # Página com resultado da previsão
-@app.route("/estimate", methods=["POST"])
+@app.route("/estimate", methods = ["POST"])
 def estimate():
     values = request.form.getlist('new_car')
     car = Car(values)
     value_to_predict = car.prepare()
     result = car.predict(value_to_predict)
-    # Formatação no padrão brasileiro
-    result = "{:,.2f}".format(result).replace(',', 'X').replace('.', ',').replace('X', '.')
-    return render_template('index.html', result=result)
+    result = "%.2f" % result
+    return render_template('index.html', result = result)
 
 # Executa a app
 if __name__ == "__main__":

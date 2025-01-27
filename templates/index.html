@@ -5,32 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Previsão de Preço de Veículos</title>
+    <title>Previsão de Preço de Carros</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/style.css">
 </head>
 
-<body>
+<div>
     <div class="container">
-        <h1>Simulador de Preço de Carros com Machine Learning</h1>
+        <h1>Previsão de Preço de Carros</h1>
         {% if result %}
-        <h3>Valor Estimado: $ {{result}}</h3>
+        <h3>Valor Estimado: {{result}}$</h3>
         <a href="/">Estimar Novamente</a>
         {% endif %}
         {% if result == None %}
-        <form action="/estimate" method="POST">
+        <form action = "/estimate" method = "POST">
+
             <div class="form-group">
                 <div class="form-row">
                     <div class="col">
-                        <label>Tamanho do Motor (Valores: 1.3 - 8.3)</label>
+                        <label>Valores possíveis: 1.6 - 3.8 - 4.2</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Engine Size" required>
                     </div>
                     <div class="col">
-                        <label>Número de Cilindros (Valores: 3 - 12)</label>
+                        <label>Valores possíveis: 4 - 6 - 8</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Cylinders" required>
                     </div>
                     <div class="col">
-                        <label>Potência (Valores: 73 - 500)</label>
+                        <label>Valores possíveis: 180 - 200</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Horse Power" required>
                     </div>
                 </div>
@@ -39,11 +40,11 @@
             <div class="form-group">
                 <div class="form-row">
                     <div class="col">
-                        <label>Milhas Por Galão na Cidade (Valores: 10 - 60)</label>
+                        <label>Milhas Por Galão na Cidade</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="MPG City" required>
                     </div>
                     <div class="col">
-                        <label>Milhas Por Galão na Estrada (Valores: 12 - 66)</label>
+                        <label>Milhas Por Galão na Estrada</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="MPG Hight" required>
                     </div>
                 </div>
@@ -52,15 +53,15 @@
             <div class="form-group">
                 <div class="form-row">
                     <div class="col">
-                        <label>Peso em KG (Valores: 1850 - 7190)</label>
+                        <label>Peso em KG</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Weight" required>
                     </div>
                     <div class="col">
-                        <label>Tamanho da Roda (Valores: 89 - 144)</label>
+                        <label>Tamanho da Roda</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Wheel Base" required>
                     </div>
                     <div class="col">
-                        <label>Comprimento (Polegadas Valores: 143 - 238)</label>
+                        <label>Comprimento em Polegadas</label>
                         <input type="text" class="form-control form-control-sm" name="new_car" placeholder="Length" required>
                     </div>
                 </div>
@@ -113,7 +114,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="form-row">
                     <div class="col">
@@ -140,11 +140,10 @@
             <button type="submit" class="btn btn-primary">Estimar</button>
         </form>
         {% endif %}
-
         <footer class="mt-5">
             <p>Desenvolvido por <a href="https://www.linkedin.com/in/matheus-da-silva-soares/" target="_blank">Matheus da Silva Soares</a></p>
         </footer>
     </div>
-</body>
+    </body>
 
 </html>
